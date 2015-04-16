@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B313D2191AE0574000D8DACC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313D2181AE0574000D8DACC /* AppDelegate.swift */; };
+		B313D21B1AE0574000D8DACC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B313D21A1AE0574000D8DACC /* GameScene.sks */; };
+		B313D21D1AE0574000D8DACC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313D21C1AE0574000D8DACC /* GameScene.swift */; };
+		B313D21F1AE0574000D8DACC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313D21E1AE0574000D8DACC /* GameViewController.swift */; };
+		B313D2221AE0574000D8DACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B313D2201AE0574000D8DACC /* Main.storyboard */; };
+		B313D2241AE0574000D8DACC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B313D2231AE0574000D8DACC /* Images.xcassets */; };
+		B313D2271AE0574000D8DACC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B313D2251AE0574000D8DACC /* LaunchScreen.xib */; };
+		B313D2331AE0574000D8DACC /* FairyFlappyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313D2321AE0574000D8DACC /* FairyFlappyTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B313D22D1AE0574000D8DACC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B313D20B1AE0574000D8DACC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B313D2121AE0574000D8DACC;
+			remoteInfo = FairyFlappy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B313D2131AE0574000D8DACC /* FairyFlappy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FairyFlappy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B313D2171AE0574000D8DACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B313D2181AE0574000D8DACC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B313D21A1AE0574000D8DACC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		B313D21C1AE0574000D8DACC /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		B313D21E1AE0574000D8DACC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		B313D2211AE0574000D8DACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B313D2231AE0574000D8DACC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B313D2261AE0574000D8DACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B313D22C1AE0574000D8DACC /* FairyFlappyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FairyFlappyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B313D2311AE0574000D8DACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B313D2321AE0574000D8DACC /* FairyFlappyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyFlappyTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B313D2101AE0574000D8DACC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B313D2291AE0574000D8DACC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B313D20A1AE0574000D8DACC = {
+			isa = PBXGroup;
+			children = (
+				B313D2151AE0574000D8DACC /* FairyFlappy */,
+				B313D22F1AE0574000D8DACC /* FairyFlappyTests */,
+				B313D2141AE0574000D8DACC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B313D2141AE0574000D8DACC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B313D2131AE0574000D8DACC /* FairyFlappy.app */,
+				B313D22C1AE0574000D8DACC /* FairyFlappyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B313D2151AE0574000D8DACC /* FairyFlappy */ = {
+			isa = PBXGroup;
+			children = (
+				B313D2181AE0574000D8DACC /* AppDelegate.swift */,
+				B313D21A1AE0574000D8DACC /* GameScene.sks */,
+				B313D21C1AE0574000D8DACC /* GameScene.swift */,
+				B313D21E1AE0574000D8DACC /* GameViewController.swift */,
+				B313D2201AE0574000D8DACC /* Main.storyboard */,
+				B313D2231AE0574000D8DACC /* Images.xcassets */,
+				B313D2251AE0574000D8DACC /* LaunchScreen.xib */,
+				B313D2161AE0574000D8DACC /* Supporting Files */,
+			);
+			path = FairyFlappy;
+			sourceTree = "<group>";
+		};
+		B313D2161AE0574000D8DACC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B313D2171AE0574000D8DACC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B313D22F1AE0574000D8DACC /* FairyFlappyTests */ = {
+			isa = PBXGroup;
+			children = (
+				B313D2321AE0574000D8DACC /* FairyFlappyTests.swift */,
+				B313D2301AE0574000D8DACC /* Supporting Files */,
+			);
+			path = FairyFlappyTests;
+			sourceTree = "<group>";
+		};
+		B313D2301AE0574000D8DACC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B313D2311AE0574000D8DACC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B313D2121AE0574000D8DACC /* FairyFlappy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B313D2361AE0574000D8DACC /* Build configuration list for PBXNativeTarget "FairyFlappy" */;
+			buildPhases = (
+				B313D20F1AE0574000D8DACC /* Sources */,
+				B313D2101AE0574000D8DACC /* Frameworks */,
+				B313D2111AE0574000D8DACC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FairyFlappy;
+			productName = FairyFlappy;
+			productReference = B313D2131AE0574000D8DACC /* FairyFlappy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B313D22B1AE0574000D8DACC /* FairyFlappyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B313D2391AE0574000D8DACC /* Build configuration list for PBXNativeTarget "FairyFlappyTests" */;
+			buildPhases = (
+				B313D2281AE0574000D8DACC /* Sources */,
+				B313D2291AE0574000D8DACC /* Frameworks */,
+				B313D22A1AE0574000D8DACC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B313D22E1AE0574000D8DACC /* PBXTargetDependency */,
+			);
+			name = FairyFlappyTests;
+			productName = FairyFlappyTests;
+			productReference = B313D22C1AE0574000D8DACC /* FairyFlappyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B313D20B1AE0574000D8DACC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Jessie Pease";
+				TargetAttributes = {
+					B313D2121AE0574000D8DACC = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					B313D22B1AE0574000D8DACC = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = B313D2121AE0574000D8DACC;
+					};
+				};
+			};
+			buildConfigurationList = B313D20E1AE0574000D8DACC /* Build configuration list for PBXProject "FairyFlappy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B313D20A1AE0574000D8DACC;
+			productRefGroup = B313D2141AE0574000D8DACC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B313D2121AE0574000D8DACC /* FairyFlappy */,
+				B313D22B1AE0574000D8DACC /* FairyFlappyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B313D2111AE0574000D8DACC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B313D2271AE0574000D8DACC /* LaunchScreen.xib in Resources */,
+				B313D2241AE0574000D8DACC /* Images.xcassets in Resources */,
+				B313D21B1AE0574000D8DACC /* GameScene.sks in Resources */,
+				B313D2221AE0574000D8DACC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B313D22A1AE0574000D8DACC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B313D20F1AE0574000D8DACC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B313D21D1AE0574000D8DACC /* GameScene.swift in Sources */,
+				B313D21F1AE0574000D8DACC /* GameViewController.swift in Sources */,
+				B313D2191AE0574000D8DACC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B313D2281AE0574000D8DACC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B313D2331AE0574000D8DACC /* FairyFlappyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B313D22E1AE0574000D8DACC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B313D2121AE0574000D8DACC /* FairyFlappy */;
+			targetProxy = B313D22D1AE0574000D8DACC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B313D2201AE0574000D8DACC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B313D2211AE0574000D8DACC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B313D2251AE0574000D8DACC /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B313D2261AE0574000D8DACC /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B313D2341AE0574000D8DACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B313D2351AE0574000D8DACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B313D2371AE0574000D8DACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FairyFlappy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B313D2381AE0574000D8DACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FairyFlappy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B313D23A1AE0574000D8DACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FairyFlappyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FairyFlappy.app/FairyFlappy";
+			};
+			name = Debug;
+		};
+		B313D23B1AE0574000D8DACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FairyFlappyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FairyFlappy.app/FairyFlappy";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B313D20E1AE0574000D8DACC /* Build configuration list for PBXProject "FairyFlappy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B313D2341AE0574000D8DACC /* Debug */,
+				B313D2351AE0574000D8DACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B313D2361AE0574000D8DACC /* Build configuration list for PBXNativeTarget "FairyFlappy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B313D2371AE0574000D8DACC /* Debug */,
+				B313D2381AE0574000D8DACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B313D2391AE0574000D8DACC /* Build configuration list for PBXNativeTarget "FairyFlappyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B313D23A1AE0574000D8DACC /* Debug */,
+				B313D23B1AE0574000D8DACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B313D20B1AE0574000D8DACC /* Project object */;
+}
