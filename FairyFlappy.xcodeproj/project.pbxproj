@@ -15,6 +15,11 @@
 		B313D2241AE0574000D8DACC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B313D2231AE0574000D8DACC /* Images.xcassets */; };
 		B313D2271AE0574000D8DACC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B313D2251AE0574000D8DACC /* LaunchScreen.xib */; };
 		B313D2331AE0574000D8DACC /* FairyFlappyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313D2321AE0574000D8DACC /* FairyFlappyTests.swift */; };
+		B313D23E1AE0579A00D8DACC /* jumpParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = B313D23C1AE0579A00D8DACC /* jumpParticle.sks */; };
+		B313D23F1AE0579A00D8DACC /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = B313D23D1AE0579A00D8DACC /* spark.png */; };
+		B313D2421AE057C800D8DACC /* sparklesound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = B313D2401AE057C800D8DACC /* sparklesound.aiff */; };
+		B313D2431AE057C800D8DACC /* fairy.png in Resources */ = {isa = PBXBuildFile; fileRef = B313D2411AE057C800D8DACC /* fairy.png */; };
+		B3436D301AE5B03A0010B72A /* skybackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D2E1AE5B03A0010B72A /* skybackground.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,11 @@
 		B313D22C1AE0574000D8DACC /* FairyFlappyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FairyFlappyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B313D2311AE0574000D8DACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B313D2321AE0574000D8DACC /* FairyFlappyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairyFlappyTests.swift; sourceTree = "<group>"; };
+		B313D23C1AE0579A00D8DACC /* jumpParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = jumpParticle.sks; sourceTree = "<group>"; };
+		B313D23D1AE0579A00D8DACC /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		B313D2401AE057C800D8DACC /* sparklesound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = sparklesound.aiff; sourceTree = "<group>"; };
+		B313D2411AE057C800D8DACC /* fairy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairy.png; sourceTree = "<group>"; };
+		B3436D2E1AE5B03A0010B72A /* skybackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skybackground.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +91,17 @@
 		B313D2151AE0574000D8DACC /* FairyFlappy */ = {
 			isa = PBXGroup;
 			children = (
+				B313D23C1AE0579A00D8DACC /* jumpParticle.sks */,
+				B313D23D1AE0579A00D8DACC /* spark.png */,
+				B3436D2E1AE5B03A0010B72A /* skybackground.png */,
 				B313D2181AE0574000D8DACC /* AppDelegate.swift */,
 				B313D21A1AE0574000D8DACC /* GameScene.sks */,
 				B313D21C1AE0574000D8DACC /* GameScene.swift */,
 				B313D21E1AE0574000D8DACC /* GameViewController.swift */,
 				B313D2201AE0574000D8DACC /* Main.storyboard */,
 				B313D2231AE0574000D8DACC /* Images.xcassets */,
+				B313D2401AE057C800D8DACC /* sparklesound.aiff */,
+				B313D2411AE057C800D8DACC /* fairy.png */,
 				B313D2251AE0574000D8DACC /* LaunchScreen.xib */,
 				B313D2161AE0574000D8DACC /* Supporting Files */,
 			);
@@ -198,10 +213,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B313D23E1AE0579A00D8DACC /* jumpParticle.sks in Resources */,
+				B313D23F1AE0579A00D8DACC /* spark.png in Resources */,
 				B313D2271AE0574000D8DACC /* LaunchScreen.xib in Resources */,
 				B313D2241AE0574000D8DACC /* Images.xcassets in Resources */,
 				B313D21B1AE0574000D8DACC /* GameScene.sks in Resources */,
 				B313D2221AE0574000D8DACC /* Main.storyboard in Resources */,
+				B313D2421AE057C800D8DACC /* sparklesound.aiff in Resources */,
+				B313D2431AE057C800D8DACC /* fairy.png in Resources */,
+				B3436D301AE5B03A0010B72A /* skybackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +439,7 @@
 				B313D2381AE0574000D8DACC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B313D2391AE0574000D8DACC /* Build configuration list for PBXNativeTarget "FairyFlappyTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +448,7 @@
 				B313D23B1AE0574000D8DACC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
