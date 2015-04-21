@@ -15,6 +15,8 @@ class GameScene: SKScene {
     var sprite: SKSpriteNode!
     var background1: SKSpriteNode!
     var background2: SKSpriteNode!
+    var obstacle1: SKSpriteNode!
+    var obstacle2: SKSpriteNode!
     
     override init() {
         super.init()
@@ -38,7 +40,7 @@ class GameScene: SKScene {
         
         /*Create fairy sprite*/
         let location = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
-        sprite = SKSpriteNode(imageNamed:"fairy")
+        self.sprite = SKSpriteNode(imageNamed:"fairy")
         self.sprite.xScale = 0.30
         self.sprite.yScale = 0.30
         self.sprite.position = location
@@ -60,6 +62,20 @@ class GameScene: SKScene {
         background2.zPosition = -15
         self.addChild(background2)
         
+        /*Create sunflower1 sprite*/
+        self.obstacle1 = SKSpriteNode(imageNamed: "sunflower1.png")
+        self.obstacle1.xScale = 0.3
+        self.obstacle1.yScale = 0.3
+        self.obstacle1.position = CGPoint(x: self.frame.width, y: self.obstacle1.size.height/2)
+        
+        /*Create sunflower2 sprite*/
+        self.obstacle2 = SKSpriteNode(imageNamed: "sunflower4.png")
+        self.obstacle2.xScale = 0.3
+        self.obstacle2.yScale = 0.3
+        self.obstacle2.position = CGPoint(x: self.frame.width + self.frame.width/2, y: self.obstacle1.size.height/2)
+        
+        
+        
 
     }
     
@@ -78,6 +94,8 @@ class GameScene: SKScene {
             //self.size = self.view!.frame.size
             
             self.addChild(self.sprite)
+            self.addChild(self.obstacle1)
+            self.addChild(self.obstacle2)
             
         }
             
@@ -89,13 +107,14 @@ class GameScene: SKScene {
             println(sparkle.particleLifetime)
             self.sprite.physicsBody?.applyForce(upVector)
             self.runAction(SKAction.waitForDuration(NSTimeInterval(0.4)), completion: { sparkle.removeFromParent() })
+            self.sprite.texture = SKTexture(imageNamed: "fairy2.png")
+            self.runAction(SKAction.waitForDuration(NSTimeInterval(0.25)), completion: { self.sprite.texture = SKTexture(imageNamed: "fairy.png") })
         }
         
         
     }
     
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+    func scrollBackground() {
         background1.position = CGPointMake(background1.position.x - 2, background1.position.y)
         background2.position = CGPointMake(background2.position.x - 2, background2.position.y)
         
@@ -109,6 +128,19 @@ class GameScene: SKScene {
             background2.position = CGPointMake(background1.position.x + background1.size.width, background1.position.y)
             
         }
+    }
+    
+    override func update(currentTime: CFTimeInterval) {
+        /* Called before each frame is rendered */
+        scrollBackground()
+        
+        var imageNames = ["sunflower1.png", "sunflower2.png", "sunflower3.png", "sunflower4.png"]
+        
+        obstacle1.position = CGPointMake(obstacle1.position.x - 2, obstacle1.position.y)
+        obstacle2.position = CGPointMake(obstacle2.position.x - 2, obstacle2.position.y)
+        
+        
+        
     }
     
     func rotationHappened() {
