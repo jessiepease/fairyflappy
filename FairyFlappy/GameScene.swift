@@ -17,6 +17,8 @@ class GameScene: SKScene {
     var background2: SKSpriteNode!
     var obstacle1: SKSpriteNode!
     var obstacle2: SKSpriteNode!
+    var obstacle3: SKSpriteNode!
+    var obstacle4: SKSpriteNode!
     
     override init() {
         super.init()
@@ -74,6 +76,18 @@ class GameScene: SKScene {
         self.obstacle2.yScale = 0.3
         self.obstacle2.position = CGPoint(x: self.frame.width + self.frame.width/2, y: self.obstacle1.size.height/2)
         
+        /*Create sunflower3 sprite*/
+        self.obstacle3 = SKSpriteNode(imageNamed: "sunflower3.png")
+        self.obstacle3.xScale = 0.3
+        self.obstacle3.yScale = 0.3
+        self.obstacle3.position = CGPoint(x: self.frame.width * 2, y: self.obstacle3.size.height/2)
+        
+        /*Create sunflower4 sprite*/
+        self.obstacle4 = SKSpriteNode(imageNamed: "sunflower2.png")
+        self.obstacle4.xScale = 0.3
+        self.obstacle4.yScale = 0.3
+        self.obstacle4.position = CGPoint(x: self.frame.width * 2 + self.frame.width/2, y: self.obstacle4.size.height/2)
+        
         
         
 
@@ -96,6 +110,8 @@ class GameScene: SKScene {
             self.addChild(self.sprite)
             self.addChild(self.obstacle1)
             self.addChild(self.obstacle2)
+            self.addChild(self.obstacle3)
+            self.addChild(self.obstacle4)
             
         }
             
@@ -134,11 +150,36 @@ class GameScene: SKScene {
         /* Called before each frame is rendered */
         scrollBackground()
         
-        var imageNames = ["sunflower1.png", "sunflower2.png", "sunflower3.png", "sunflower4.png"]
+        //var imageNames = ["sunflower1.png", "sunflower2.png", "sunflower3.png", "sunflower4.png"]
         
         obstacle1.position = CGPointMake(obstacle1.position.x - 2, obstacle1.position.y)
         obstacle2.position = CGPointMake(obstacle2.position.x - 2, obstacle2.position.y)
+        obstacle3.position = CGPointMake(obstacle3.position.x - 2, obstacle3.position.y)
+        obstacle4.position = CGPointMake(obstacle4.position.x - 2, obstacle4.position.y)
         
+        if(obstacle1.position.x < -obstacle1.size.width)
+        {
+            obstacle1.position = CGPointMake(obstacle4.position.x + self.frame.width/2, obstacle1.position.y)
+        }
+        
+        if(obstacle2.position.x < -obstacle2.size.width)
+        {
+            obstacle2.position = CGPointMake(obstacle1.position.x + self.frame.width/2, obstacle2.position.y)
+            
+        }
+        
+        if(obstacle3.position.x < -obstacle3.size.width)
+        {
+            obstacle3.position = CGPointMake(obstacle2.position.x + self.frame.width/2, obstacle3.position.y)
+            
+        }
+        
+        if(obstacle4.position.x < -obstacle4.size.width)
+        {
+            obstacle4.position = CGPointMake(obstacle3.position.x + self.frame.width/2, obstacle4.position.y)
+            
+        }
+
         
         
     }

@@ -21,10 +21,10 @@
 		B313D2431AE057C800D8DACC /* fairy.png in Resources */ = {isa = PBXBuildFile; fileRef = B313D2411AE057C800D8DACC /* fairy.png */; };
 		B3436D301AE5B03A0010B72A /* skybackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D2E1AE5B03A0010B72A /* skybackground.png */; };
 		B3436D391AE5C64C0010B72A /* sunflower1.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D351AE5C64C0010B72A /* sunflower1.png */; };
-		B3436D3A1AE5C64C0010B72A /* sunflower2.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D361AE5C64C0010B72A /* sunflower2.png */; };
-		B3436D3B1AE5C64C0010B72A /* sunflower3.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D371AE5C64C0010B72A /* sunflower3.png */; };
-		B3436D3C1AE5C64C0010B72A /* sunflower4.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D381AE5C64C0010B72A /* sunflower4.png */; };
 		B3436D3E1AE5CBE10010B72A /* fairy2.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D3D1AE5CBE10010B72A /* fairy2.png */; };
+		B3436D421AE6A8390010B72A /* sunflower2.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D3F1AE6A8390010B72A /* sunflower2.png */; };
+		B3436D431AE6A8390010B72A /* sunflower3.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D401AE6A8390010B72A /* sunflower3.png */; };
+		B3436D441AE6A8390010B72A /* sunflower4.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D411AE6A8390010B72A /* sunflower4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,10 +56,10 @@
 		B313D2411AE057C800D8DACC /* fairy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairy.png; sourceTree = "<group>"; };
 		B3436D2E1AE5B03A0010B72A /* skybackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skybackground.png; sourceTree = "<group>"; };
 		B3436D351AE5C64C0010B72A /* sunflower1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunflower1.png; sourceTree = "<group>"; };
-		B3436D361AE5C64C0010B72A /* sunflower2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunflower2.png; sourceTree = "<group>"; };
-		B3436D371AE5C64C0010B72A /* sunflower3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunflower3.png; sourceTree = "<group>"; };
-		B3436D381AE5C64C0010B72A /* sunflower4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunflower4.png; sourceTree = "<group>"; };
 		B3436D3D1AE5CBE10010B72A /* fairy2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fairy2.png; sourceTree = "<group>"; };
+		B3436D3F1AE6A8390010B72A /* sunflower2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunflower2.png; sourceTree = "<group>"; };
+		B3436D401AE6A8390010B72A /* sunflower3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunflower3.png; sourceTree = "<group>"; };
+		B3436D411AE6A8390010B72A /* sunflower4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunflower4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +108,9 @@
 				B3436D3D1AE5CBE10010B72A /* fairy2.png */,
 				B3436D2E1AE5B03A0010B72A /* skybackground.png */,
 				B3436D351AE5C64C0010B72A /* sunflower1.png */,
-				B3436D361AE5C64C0010B72A /* sunflower2.png */,
-				B3436D371AE5C64C0010B72A /* sunflower3.png */,
-				B3436D381AE5C64C0010B72A /* sunflower4.png */,
+				B3436D3F1AE6A8390010B72A /* sunflower2.png */,
+				B3436D401AE6A8390010B72A /* sunflower3.png */,
+				B3436D411AE6A8390010B72A /* sunflower4.png */,
 				B313D2181AE0574000D8DACC /* AppDelegate.swift */,
 				B313D21A1AE0574000D8DACC /* GameScene.sks */,
 				B313D21C1AE0574000D8DACC /* GameScene.swift */,
@@ -228,18 +228,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3436D421AE6A8390010B72A /* sunflower2.png in Resources */,
 				B313D23E1AE0579A00D8DACC /* jumpParticle.sks in Resources */,
 				B313D23F1AE0579A00D8DACC /* spark.png in Resources */,
 				B313D2271AE0574000D8DACC /* LaunchScreen.xib in Resources */,
+				B3436D441AE6A8390010B72A /* sunflower4.png in Resources */,
 				B313D2241AE0574000D8DACC /* Images.xcassets in Resources */,
 				B3436D3E1AE5CBE10010B72A /* fairy2.png in Resources */,
+				B3436D431AE6A8390010B72A /* sunflower3.png in Resources */,
 				B313D21B1AE0574000D8DACC /* GameScene.sks in Resources */,
-				B3436D3B1AE5C64C0010B72A /* sunflower3.png in Resources */,
 				B313D2221AE0574000D8DACC /* Main.storyboard in Resources */,
 				B313D2421AE057C800D8DACC /* sparklesound.aiff in Resources */,
-				B3436D3C1AE5C64C0010B72A /* sunflower4.png in Resources */,
 				B3436D391AE5C64C0010B72A /* sunflower1.png in Resources */,
-				B3436D3A1AE5C64C0010B72A /* sunflower2.png in Resources */,
 				B313D2431AE057C800D8DACC /* fairy.png in Resources */,
 				B3436D301AE5B03A0010B72A /* skybackground.png in Resources */,
 			);
