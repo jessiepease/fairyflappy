@@ -20,6 +20,8 @@ class GameScene: SKScene {
     var obstacle3: SKSpriteNode!
     var obstacle4: SKSpriteNode!
     
+    var obstacleList: [SKSpriteNode]!
+    
     override init() {
         super.init()
         
@@ -49,6 +51,7 @@ class GameScene: SKScene {
         self.sprite.physicsBody = SKPhysicsBody(texture: self.sprite.texture, size: self.sprite.size)
         self.sprite.physicsBody?.allowsRotation = false
         self.physicsWorld.gravity.dy = CGFloat(-4.0)
+        self.sprite.physicsBody?.linearDamping = 1
         
         /*Initialize background1*/
         self.background1 = SKSpriteNode(imageNamed: "skybackground.png")
@@ -64,33 +67,57 @@ class GameScene: SKScene {
         background2.zPosition = -15
         self.addChild(background2)
         
-        /*Create sunflower1 sprite*/
-        self.obstacle1 = SKSpriteNode(imageNamed: "sunflower1.png")
-        self.obstacle1.xScale = 0.3
-        self.obstacle1.yScale = 0.3
-        self.obstacle1.position = CGPoint(x: self.frame.width, y: self.obstacle1.size.height/2)
+        obstacleList = []
         
-        /*Create sunflower2 sprite*/
-        self.obstacle2 = SKSpriteNode(imageNamed: "sunflower4.png")
-        self.obstacle2.xScale = 0.3
-        self.obstacle2.yScale = 0.3
-        self.obstacle2.position = CGPoint(x: self.frame.width + self.frame.width/2, y: self.obstacle1.size.height/2)
         
-        /*Create sunflower3 sprite*/
-        self.obstacle3 = SKSpriteNode(imageNamed: "sunflower3.png")
-        self.obstacle3.xScale = 0.3
-        self.obstacle3.yScale = 0.3
-        self.obstacle3.position = CGPoint(x: self.frame.width * 2, y: self.obstacle3.size.height/2)
         
-        /*Create sunflower4 sprite*/
-        self.obstacle4 = SKSpriteNode(imageNamed: "sunflower2.png")
-        self.obstacle4.xScale = 0.3
-        self.obstacle4.yScale = 0.3
-        self.obstacle4.position = CGPoint(x: self.frame.width * 2 + self.frame.width/2, y: self.obstacle4.size.height/2)
+//        /*Create sunflower1 sprite*/
+//        self.obstacle1 = SKSpriteNode(imageNamed: "sunflower1.png")
+//        self.obstacle1.xScale = 0.3
+//        self.obstacle1.yScale = 0.3
+//        self.obstacle1.position = CGPoint(x: self.frame.width, y: self.obstacle1.size.height/2)
+//        
+//        /*Create sunflower2 sprite*/
+//        self.obstacle2 = SKSpriteNode(imageNamed: "sunflower4.png")
+//        self.obstacle2.xScale = 0.3
+//        self.obstacle2.yScale = 0.3
+//        self.obstacle2.position = CGPoint(x: self.frame.width + self.frame.width/2, y: self.obstacle1.size.height/2)
+//        
+//        /*Create sunflower3 sprite*/
+//        self.obstacle3 = SKSpriteNode(imageNamed: "sunflower3.png")
+//        self.obstacle3.xScale = 0.3
+//        self.obstacle3.yScale = 0.3
+//        self.obstacle3.position = CGPoint(x: self.frame.width * 2, y: self.obstacle3.size.height/2)
+//        
+//        /*Create sunflower4 sprite*/
+//        self.obstacle4 = SKSpriteNode(imageNamed: "sunflower2.png")
+//        self.obstacle4.xScale = 0.3
+//        self.obstacle4.yScale = 0.3
+//        self.obstacle4.position = CGPoint(x: self.frame.width * 2 + self.frame.width/2, y: self.obstacle4.size.height/2)
         
         
         
 
+    }
+    
+    func spawnObstacle() {
+        var imageNames = ["sunflower1.png", "sunflower2.png", "sunflower3.png", "sunflower4.png"]
+        var randInt: Int = Int(skRand(lowerBound: CGFloat(0), upperBound: CGFloat(4)))
+        var spawnPos = self.frame.width
+        
+        if obstacleList.count > 0 {
+            spawnPos = obstacleList.last!.position.x + self.frame.width/2
+        }
+        
+        var curObstacle: SKSpriteNode = SKSpriteNode(imageNamed: imageNames[randInt])
+        curObstacle.xScale = 0.3
+        curObstacle.yScale = 0.3
+        curObstacle.position = CGPoint(x: spawnPos, y: curObstacle.size.height/2)
+        
+        obstacleList.append(curObstacle)
+        self.addChild(curObstacle)
+        
+        
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -108,10 +135,10 @@ class GameScene: SKScene {
             //self.size = self.view!.frame.size
             
             self.addChild(self.sprite)
-            self.addChild(self.obstacle1)
-            self.addChild(self.obstacle2)
-            self.addChild(self.obstacle3)
-            self.addChild(self.obstacle4)
+            spawnObstacle()
+            spawnObstacle()
+            spawnObstacle()
+            spawnObstacle()
             
         }
             
@@ -146,43 +173,33 @@ class GameScene: SKScene {
         }
     }
     
+    func skRandf() -> CGFloat {
+        return CGFloat(Double(arc4random()) / Double(UINT32_MAX))
+    }
+    
+    func skRand(lowerBound low: CGFloat, upperBound high: CGFloat) -> CGFloat {
+        return skRandf() * (high - low) + low
+    }
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         scrollBackground()
         
-        //var imageNames = ["sunflower1.png", "sunflower2.png", "sunflower3.png", "sunflower4.png"]
+        var imageNames = ["sunflower1.png", "sunflower2.png", "sunflower3.png", "sunflower4.png"]
         
-        obstacle1.position = CGPointMake(obstacle1.position.x - 2, obstacle1.position.y)
-        obstacle2.position = CGPointMake(obstacle2.position.x - 2, obstacle2.position.y)
-        obstacle3.position = CGPointMake(obstacle3.position.x - 2, obstacle3.position.y)
-        obstacle4.position = CGPointMake(obstacle4.position.x - 2, obstacle4.position.y)
-        
-        if(obstacle1.position.x < -obstacle1.size.width)
-        {
-            obstacle1.position = CGPointMake(obstacle4.position.x + self.frame.width/2, obstacle1.position.y)
+        for ob in obstacleList {
+            ob.position = CGPointMake(ob.position.x - 2, ob.position.y)
+            if (ob.position.x < -ob.size.width) {
+                ob.removeFromParent()
+                obstacleList.removeAtIndex(find(obstacleList, ob)!)
+                spawnObstacle()
+            }
         }
-        
-        if(obstacle2.position.x < -obstacle2.size.width)
-        {
-            obstacle2.position = CGPointMake(obstacle1.position.x + self.frame.width/2, obstacle2.position.y)
-            
-        }
-        
-        if(obstacle3.position.x < -obstacle3.size.width)
-        {
-            obstacle3.position = CGPointMake(obstacle2.position.x + self.frame.width/2, obstacle3.position.y)
-            
-        }
-        
-        if(obstacle4.position.x < -obstacle4.size.width)
-        {
-            obstacle4.position = CGPointMake(obstacle3.position.x + self.frame.width/2, obstacle4.position.y)
-            
-        }
-
         
         
     }
+    
+        
     
     func rotationHappened() {
         let skView:SKView = self.view!
