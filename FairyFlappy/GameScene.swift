@@ -8,19 +8,24 @@
 
 import SpriteKit
 
+struct PhysicsCategory {
+    static let None      : UInt32 = 0
+    static let All       : UInt32 = UInt32.max
+    static let Fairy   : UInt32 = 0b1       // 1
+    static let Obstacle: UInt32 = 0b10      // 2
+    static let Screen: UInt32 = 0b100 //4
+}
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var myLabel: SKLabelNode!
     var sprite: SKSpriteNode!
     var background1: SKSpriteNode!
     var background2: SKSpriteNode!
-    var obstacle1: SKSpriteNode!
-    var obstacle2: SKSpriteNode!
-    var obstacle3: SKSpriteNode!
-    var obstacle4: SKSpriteNode!
+    var gameOver: Bool!
     
     var obstacleList: [SKSpriteNode]!
+    var topObstacleList: [SKSpriteNode]!
     
     override init() {
         super.init()
@@ -36,7 +41,7 @@ class GameScene: SKScene {
         self.size = view.frame.size
         self.myLabel = SKLabelNode(fontNamed:"AppleSDGothicNeo-Light")
         self.myLabel.text = "Tap to Begin";
-        self.myLabel.fontSize = 65;
+        self.myLabel.fontSize = 55;
         self.myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
         self.addChild(self.myLabel)
@@ -50,8 +55,18 @@ class GameScene: SKScene {
         self.sprite.position = location
         self.sprite.physicsBody = SKPhysicsBody(texture: self.sprite.texture, size: self.sprite.size)
         self.sprite.physicsBody?.allowsRotation = false
-        self.physicsWorld.gravity.dy = CGFloat(-4.0)
         self.sprite.physicsBody?.linearDamping = 1
+        self.sprite.physicsBody?.categoryBitMask = PhysicsCategory.Fairy
+        self.sprite.physicsBody?.collisionBitMask = PhysicsCategory.Obstacle
+        self.sprite.physicsBody?.contactTestBitMask = PhysicsCategory.Obstacle
+        
+        
+        gameOver = false
+        
+        self.physicsWorld.gravity.dy = CGFloat(-4.0)
+        physicsWorld.contactDelegate = self
+
+        
         
         /*Initialize background1*/
         self.background1 = SKSpriteNode(imageNamed: "skybackground.png")
@@ -68,42 +83,20 @@ class GameScene: SKScene {
         self.addChild(background2)
         
         obstacleList = []
-        
-        
-        
-//        /*Create sunflower1 sprite*/
-//        self.obstacle1 = SKSpriteNode(imageNamed: "sunflower1.png")
-//        self.obstacle1.xScale = 0.3
-//        self.obstacle1.yScale = 0.3
-//        self.obstacle1.position = CGPoint(x: self.frame.width, y: self.obstacle1.size.height/2)
-//        
-//        /*Create sunflower2 sprite*/
-//        self.obstacle2 = SKSpriteNode(imageNamed: "sunflower4.png")
-//        self.obstacle2.xScale = 0.3
-//        self.obstacle2.yScale = 0.3
-//        self.obstacle2.position = CGPoint(x: self.frame.width + self.frame.width/2, y: self.obstacle1.size.height/2)
-//        
-//        /*Create sunflower3 sprite*/
-//        self.obstacle3 = SKSpriteNode(imageNamed: "sunflower3.png")
-//        self.obstacle3.xScale = 0.3
-//        self.obstacle3.yScale = 0.3
-//        self.obstacle3.position = CGPoint(x: self.frame.width * 2, y: self.obstacle3.size.height/2)
-//        
-//        /*Create sunflower4 sprite*/
-//        self.obstacle4 = SKSpriteNode(imageNamed: "sunflower2.png")
-//        self.obstacle4.xScale = 0.3
-//        self.obstacle4.yScale = 0.3
-//        self.obstacle4.position = CGPoint(x: self.frame.width * 2 + self.frame.width/2, y: self.obstacle4.size.height/2)
-        
-        
-        
+        topObstacleList = []
 
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        println("CONTACT!")
+        gameOver = true
+        
     }
     
     func spawnObstacle() {
         var imageNames = ["sunflower1.png", "sunflower2.png", "sunflower3.png", "sunflower4.png"]
         var randInt: Int = Int(skRand(lowerBound: CGFloat(0), upperBound: CGFloat(4)))
-        var spawnPos = self.frame.width
+        var spawnPos = self.frame.width + self.frame.width/2
         
         if obstacleList.count > 0 {
             spawnPos = obstacleList.last!.position.x + self.frame.width/2
@@ -114,44 +107,88 @@ class GameScene: SKScene {
         curObstacle.yScale = 0.3
         curObstacle.position = CGPoint(x: spawnPos, y: curObstacle.size.height/2)
         
+        curObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: curObstacle.size)
+        curObstacle.physicsBody?.affectedByGravity = false
+        curObstacle.physicsBody?.dynamic = true
+        curObstacle.physicsBody?.categoryBitMask = PhysicsCategory.Obstacle
+        curObstacle.physicsBody?.collisionBitMask = PhysicsCategory.Fairy
+        curObstacle.physicsBody?.contactTestBitMask = PhysicsCategory.Fairy
+        curObstacle.physicsBody?.allowsRotation = false
+        curObstacle.physicsBody?.mass = CGFloat(10000)
+        
         obstacleList.append(curObstacle)
         self.addChild(curObstacle)
         
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        println("touches")
-        /* Called when a touch begins */
-        let thrust = CGFloat(150)
-        self.runAction(SKAction.playSoundFileNamed("sparklesound.aiff", waitForCompletion: false))
+    func spawnTopObstacle() {
+        var randInt: Int = Int(skRand(lowerBound: CGFloat(0), upperBound: CGFloat(4)))
+        var spawnPos = self.frame.width
         
-        if (self.myLabel.text != "") {
-            
-            self.myLabel.text = ""
-            
-            let physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
-            self.physicsBody = physicsBody
-            //self.size = self.view!.frame.size
-            
-            self.addChild(self.sprite)
-            spawnObstacle()
-            spawnObstacle()
-            spawnObstacle()
-            spawnObstacle()
-            
+        if topObstacleList.count > 0 {
+            spawnPos = topObstacleList.last!.position.x + self.frame.width*1.5
         }
+        
+        var curTopObstacle: SKSpriteNode = SKSpriteNode(imageNamed: "cloud.png")
+        curTopObstacle.xScale = 0.09
+        curTopObstacle.yScale = 0.09
+        curTopObstacle.position = CGPoint(x: spawnPos, y: self.frame.height - curTopObstacle.size.height/2)
+        
+        curTopObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: curTopObstacle.size)
+        curTopObstacle.physicsBody?.affectedByGravity = false
+        curTopObstacle.physicsBody?.dynamic = true
+        curTopObstacle.physicsBody?.categoryBitMask = PhysicsCategory.Obstacle
+        curTopObstacle.physicsBody?.collisionBitMask = PhysicsCategory.Fairy
+        curTopObstacle.physicsBody?.contactTestBitMask = PhysicsCategory.Fairy
+        curTopObstacle.physicsBody?.allowsRotation = false
+        curTopObstacle.physicsBody?.mass = CGFloat(10000)
+        
+        topObstacleList.append(curTopObstacle)
+        self.addChild(curTopObstacle)
+        
+        
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        /* Called when a touch begins */
+        
+        if (!gameOver) {
+            let thrust = CGFloat(150)
+            self.runAction(SKAction.playSoundFileNamed("sparklesound.aiff", waitForCompletion: false))
             
-        else {
-            let upVector = CGVector(dx: 0, dy: thrust)
-            self.sprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            let sparkle:SKEmitterNode = SKEmitterNode(fileNamed: "jumpParticle.sks")
-            self.sprite.addChild(sparkle)
-            println(sparkle.particleLifetime)
-            self.sprite.physicsBody?.applyForce(upVector)
-            self.runAction(SKAction.waitForDuration(NSTimeInterval(0.4)), completion: { sparkle.removeFromParent() })
-            self.sprite.texture = SKTexture(imageNamed: "fairy2.png")
-            self.runAction(SKAction.waitForDuration(NSTimeInterval(0.25)), completion: { self.sprite.texture = SKTexture(imageNamed: "fairy.png") })
+            if (self.myLabel.text != "") {
+                
+                self.myLabel.text = ""
+                
+                let physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+                physicsBody.collisionBitMask = PhysicsCategory.Fairy
+                physicsBody.categoryBitMask = PhysicsCategory.Obstacle
+                physicsBody.contactTestBitMask = PhysicsCategory.Fairy
+                self.physicsBody = physicsBody
+                //self.size = self.view!.frame.size
+                
+                self.addChild(self.sprite)
+                spawnObstacle()
+                spawnObstacle()
+                spawnObstacle()
+                spawnObstacle()
+                spawnTopObstacle()
+                spawnTopObstacle()
+                
+            }
+                
+            else {
+                let upVector = CGVector(dx: 0, dy: thrust)
+                self.sprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                let sparkle:SKEmitterNode = SKEmitterNode(fileNamed: "jumpParticle.sks")
+                self.sprite.addChild(sparkle)
+                println(sparkle.particleLifetime)
+                self.sprite.physicsBody?.applyForce(upVector)
+                self.runAction(SKAction.waitForDuration(NSTimeInterval(0.4)), completion: { sparkle.removeFromParent() })
+                self.sprite.texture = SKTexture(imageNamed: "fairy2.png")
+                self.runAction(SKAction.waitForDuration(NSTimeInterval(0.25)), completion: { self.sprite.texture = SKTexture(imageNamed: "fairy.png") })
+            }
         }
         
         
@@ -183,20 +220,29 @@ class GameScene: SKScene {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        scrollBackground()
-        
-        var imageNames = ["sunflower1.png", "sunflower2.png", "sunflower3.png", "sunflower4.png"]
-        
-        for ob in obstacleList {
-            ob.position = CGPointMake(ob.position.x - 2, ob.position.y)
-            if (ob.position.x < -ob.size.width) {
-                ob.removeFromParent()
-                obstacleList.removeAtIndex(find(obstacleList, ob)!)
-                spawnObstacle()
+        if (!gameOver) {
+            scrollBackground()
+            
+            var imageNames = ["sunflower1.png", "sunflower2.png", "sunflower3.png", "sunflower4.png"]
+            
+            for ob in obstacleList {
+                ob.position = CGPointMake(ob.position.x - 2, ob.position.y)
+                if (ob.position.x < -ob.size.width) {
+                    ob.removeFromParent()
+                    obstacleList.removeAtIndex(find(obstacleList, ob)!)
+                    spawnObstacle()
+                }
             }
+            for tob in topObstacleList {
+                tob.position = CGPointMake(tob.position.x - 4, tob.position.y)
+                if (tob.position.x < -tob.size.width) {
+                    tob.removeFromParent()
+                    topObstacleList.removeAtIndex(find(topObstacleList, tob)!)
+                    spawnTopObstacle()
+                }
+            }
+        
         }
-        
-        
     }
     
         
