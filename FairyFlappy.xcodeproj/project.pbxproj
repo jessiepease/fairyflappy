@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B30101901AEEEB64000054E2 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B301018F1AEEEB64000054E2 /* GameOverScene.sks */; };
+		B30101921AEEEB8A000054E2 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30101911AEEEB8A000054E2 /* GameOverScene.swift */; };
+		B30101941AEEF02D000054E2 /* rainbowbackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B30101931AEEF02D000054E2 /* rainbowbackground.jpg */; };
+		B30101961AEEF04F000054E2 /* rainbowforest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B30101951AEEF04F000054E2 /* rainbowforest.jpg */; };
 		B313D2191AE0574000D8DACC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313D2181AE0574000D8DACC /* AppDelegate.swift */; };
 		B313D21B1AE0574000D8DACC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B313D21A1AE0574000D8DACC /* GameScene.sks */; };
 		B313D21D1AE0574000D8DACC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313D21C1AE0574000D8DACC /* GameScene.swift */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B301018F1AEEEB64000054E2 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
+		B30101911AEEEB8A000054E2 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		B30101931AEEF02D000054E2 /* rainbowbackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rainbowbackground.jpg; sourceTree = "<group>"; };
+		B30101951AEEF04F000054E2 /* rainbowforest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rainbowforest.jpg; sourceTree = "<group>"; };
 		B313D2131AE0574000D8DACC /* FairyFlappy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FairyFlappy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B313D2171AE0574000D8DACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B313D2181AE0574000D8DACC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,9 +122,13 @@
 				B32F72D71AEAC45F00D82DF5 /* cloud.png */,
 				B32F72DD1AEAC6F200D82DF5 /* fairy2.png */,
 				B32F72DB1AEAC67500D82DF5 /* fairy.png */,
+				B30101951AEEF04F000054E2 /* rainbowforest.jpg */,
+				B30101931AEEF02D000054E2 /* rainbowbackground.jpg */,
 				B313D2181AE0574000D8DACC /* AppDelegate.swift */,
 				B313D21A1AE0574000D8DACC /* GameScene.sks */,
+				B301018F1AEEEB64000054E2 /* GameOverScene.sks */,
 				B313D21C1AE0574000D8DACC /* GameScene.swift */,
+				B30101911AEEEB8A000054E2 /* GameOverScene.swift */,
 				B313D21E1AE0574000D8DACC /* GameViewController.swift */,
 				B313D2201AE0574000D8DACC /* Main.storyboard */,
 				B313D2231AE0574000D8DACC /* Images.xcassets */,
@@ -235,9 +247,12 @@
 				B3436D421AE6A8390010B72A /* sunflower2.png in Resources */,
 				B313D23E1AE0579A00D8DACC /* jumpParticle.sks in Resources */,
 				B32F72DE1AEAC6F200D82DF5 /* fairy2.png in Resources */,
+				B30101901AEEEB64000054E2 /* GameOverScene.sks in Resources */,
+				B30101941AEEF02D000054E2 /* rainbowbackground.jpg in Resources */,
 				B313D23F1AE0579A00D8DACC /* spark.png in Resources */,
 				B313D2271AE0574000D8DACC /* LaunchScreen.xib in Resources */,
 				B3436D441AE6A8390010B72A /* sunflower4.png in Resources */,
+				B30101961AEEF04F000054E2 /* rainbowforest.jpg in Resources */,
 				B313D2241AE0574000D8DACC /* Images.xcassets in Resources */,
 				B3436D431AE6A8390010B72A /* sunflower3.png in Resources */,
 				B32F72DC1AEAC67500D82DF5 /* fairy.png in Resources */,
@@ -265,6 +280,7 @@
 			files = (
 				B313D21D1AE0574000D8DACC /* GameScene.swift in Sources */,
 				B313D21F1AE0574000D8DACC /* GameViewController.swift in Sources */,
+				B30101921AEEEB8A000054E2 /* GameOverScene.swift in Sources */,
 				B313D2191AE0574000D8DACC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

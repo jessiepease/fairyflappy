@@ -27,6 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var obstacleList: [SKSpriteNode]!
     var topObstacleList: [SKSpriteNode]!
     
+    var myGameOver :SKScene!
+    
     override init() {
         super.init()
         
@@ -45,6 +47,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
         self.addChild(self.myLabel)
+        
+        /*Create game over scene*/
+        myGameOver = GameOverScene(fileNamed: "GameOverScene")
         
         
         /*Create fairy sprite*/
@@ -90,6 +95,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         println("CONTACT!")
         gameOver = true
+        self.runAction(SKAction.waitForDuration(NSTimeInterval(0.5)), completion: { self.view?.presentScene(myGameOver)})
+        
         
     }
     
