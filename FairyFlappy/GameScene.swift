@@ -19,6 +19,7 @@ struct PhysicsCategory {
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var myLabel: SKLabelNode!
+    var myGameOverLabel: SKLabelNode!
     var sprite: SKSpriteNode!
     var background1: SKSpriteNode!
     var background2: SKSpriteNode!
@@ -50,6 +51,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /*Create game over scene*/
         myGameOver = GameOverScene(fileNamed: "GameOverScene")
+        self.myGameOverLabel = SKLabelNode(fontNamed:"AppleSDGothicNeo-Light")
+        self.myGameOverLabel.text = "Game Over!";
+        self.myGameOverLabel.fontSize = 55;
+        self.myGameOverLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
         
         /*Create fairy sprite*/
@@ -94,6 +99,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         println("CONTACT!")
+        myGameOverLabel.removeFromParent()
+        self.addChild(myGameOverLabel)
+        //self.runAction(SKAction.waitForDuration(NSTimeInterval(0.5)))
         gameOver = true
         self.runAction(SKAction.waitForDuration(NSTimeInterval(0.5)), completion: { self.view?.presentScene(myGameOver)})
         
