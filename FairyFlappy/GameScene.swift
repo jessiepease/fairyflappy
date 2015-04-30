@@ -20,15 +20,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var myLabel: SKLabelNode!
     var myGameOverLabel: SKLabelNode!
+    var scoreLabel: SKLabelNode!
     var sprite: SKSpriteNode!
     var background1: SKSpriteNode!
     var background2: SKSpriteNode!
     var gameOver: Bool!
     
+    
+    var score: Int!
+
+    
     var obstacleList: [SKSpriteNode]!
     var topObstacleList: [SKSpriteNode]!
     
-    var myGameOver :SKScene!
+    var myGameOver :GameOverScene!
     
     override init() {
         super.init()
@@ -55,6 +60,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.myGameOverLabel.text = "Game Over!";
         self.myGameOverLabel.fontSize = 55;
         self.myGameOverLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+        
+        /*Score stuff*/
+        
+        score = 0
+        self.scoreLabel = SKLabelNode(fontNamed:"AppleSDGothicNeo-Light")
+        self.scoreLabel.fontSize = 25;
+        self.scoreLabel.position = CGPoint(x: self.frame.width/6, y: self.frame.height/2);
+        let scoreText = "Score: " + String(score)
+        self.scoreLabel.text = scoreText
         
         
         /*Create fairy sprite*/
@@ -99,10 +113,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         println("CONTACT!")
+        scoreLabel.removeFromParent()
         myGameOverLabel.removeFromParent()
         self.addChild(myGameOverLabel)
         //self.runAction(SKAction.waitForDuration(NSTimeInterval(0.5)))
         gameOver = true
+        myGameOver.currentScore = score
+        
         self.runAction(SKAction.waitForDuration(NSTimeInterval(0.5)), completion: { self.view?.presentScene(myGameOver)})
         
         
@@ -122,6 +139,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         curObstacle.yScale = 0.3
         curObstacle.position = CGPoint(x: spawnPos, y: curObstacle.size.height/2)
         
+        //curObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: curObstacle.size)
         curObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: curObstacle.size)
         curObstacle.physicsBody?.affectedByGravity = false
         curObstacle.physicsBody?.dynamic = true
@@ -183,7 +201,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.physicsBody = physicsBody
                 //self.size = self.view!.frame.size
                 
+                
+                
                 self.addChild(self.sprite)
+                self.addChild(self.scoreLabel)
                 spawnObstacle()
                 spawnObstacle()
                 spawnObstacle()
@@ -233,9 +254,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return skRandf() * (high - low) + low
     }
     
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         if (!gameOver) {
+            
+            let scoreText = "Score: " + String(score)
+            self.scoreLabel.text = scoreText
+            
             scrollBackground()
             
             var imageNames = ["sunflower1.png", "sunflower2.png", "sunflower3.png", "sunflower4.png"]
@@ -251,6 +277,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             for tob in topObstacleList {
                 tob.position = CGPointMake(tob.position.x - 4, tob.position.y)
                 if (tob.position.x < -tob.size.width) {
+                    score = score + 1
                     tob.removeFromParent()
                     topObstacleList.removeAtIndex(find(topObstacleList, tob)!)
                     spawnTopObstacle()

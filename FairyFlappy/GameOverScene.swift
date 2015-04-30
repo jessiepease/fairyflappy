@@ -15,6 +15,8 @@ class GameOverScene: SKScene {
     var background: SKSpriteNode!
     var myLabel: SKLabelNode!
     var allowedToTap: Bool!
+    var scoreLabel: SKLabelNode!
+    var currentScore: Int!
     
     
     override func didMoveToView(view: SKView) {
@@ -41,8 +43,15 @@ class GameOverScene: SKScene {
         self.myLabel = SKLabelNode(fontNamed:"AppleSDGothicNeo-Light")
         self.myLabel.text = "Tap to Restart";
         self.myLabel.fontSize = 55;
-        self.myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+        self.myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y: self.frame.height*2/3);
         self.addChild(myLabel)
+        
+        self.scoreLabel = SKLabelNode(fontNamed:"AppleSDGothicNeo-Light")
+        let toPrint = "Score: " + String(currentScore)
+        self.scoreLabel.text = toPrint
+        self.scoreLabel.fontSize = 55;
+        self.scoreLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y: self.frame.height/3);
+        self.addChild(scoreLabel)
         
         self.allowedToTap = true
     }
