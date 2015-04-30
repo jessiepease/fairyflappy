@@ -30,6 +30,7 @@
 		B3436D421AE6A8390010B72A /* sunflower2.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D3F1AE6A8390010B72A /* sunflower2.png */; };
 		B3436D431AE6A8390010B72A /* sunflower3.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D401AE6A8390010B72A /* sunflower3.png */; };
 		B3436D441AE6A8390010B72A /* sunflower4.png in Resources */ = {isa = PBXBuildFile; fileRef = B3436D411AE6A8390010B72A /* sunflower4.png */; };
+		B35F3A271AF26929002EEDAF /* scores.txt in Resources */ = {isa = PBXBuildFile; fileRef = B35F3A261AF26929002EEDAF /* scores.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		B3436D3F1AE6A8390010B72A /* sunflower2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunflower2.png; sourceTree = "<group>"; };
 		B3436D401AE6A8390010B72A /* sunflower3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunflower3.png; sourceTree = "<group>"; };
 		B3436D411AE6A8390010B72A /* sunflower4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunflower4.png; sourceTree = "<group>"; };
+		B35F3A261AF26929002EEDAF /* scores.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scores.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				B32F72DB1AEAC67500D82DF5 /* fairy.png */,
 				B30101951AEEF04F000054E2 /* rainbowforest.jpg */,
 				B30101931AEEF02D000054E2 /* rainbowbackground.jpg */,
+				B35F3A261AF26929002EEDAF /* scores.txt */,
 				B313D2181AE0574000D8DACC /* AppDelegate.swift */,
 				B313D21A1AE0574000D8DACC /* GameScene.sks */,
 				B301018F1AEEEB64000054E2 /* GameOverScene.sks */,
@@ -249,6 +252,7 @@
 				B32F72DE1AEAC6F200D82DF5 /* fairy2.png in Resources */,
 				B30101901AEEEB64000054E2 /* GameOverScene.sks in Resources */,
 				B30101941AEEF02D000054E2 /* rainbowbackground.jpg in Resources */,
+				B35F3A271AF26929002EEDAF /* scores.txt in Resources */,
 				B313D23F1AE0579A00D8DACC /* spark.png in Resources */,
 				B313D2271AE0574000D8DACC /* LaunchScreen.xib in Resources */,
 				B3436D441AE6A8390010B72A /* sunflower4.png in Resources */,

@@ -17,6 +17,9 @@ class GameOverScene: SKScene {
     var allowedToTap: Bool!
     var scoreLabel: SKLabelNode!
     var currentScore: Int!
+    var highscore1: SKLabelNode!
+    var highscore2: SKLabelNode!
+    var highscore3: SKLabelNode!
     
     
     override func didMoveToView(view: SKView) {
@@ -40,6 +43,8 @@ class GameOverScene: SKScene {
     }
     
     func labelHelper() {
+        var defaults = NSUserDefaults.standardUserDefaults()
+        
         self.myLabel = SKLabelNode(fontNamed:"AppleSDGothicNeo-Light")
         self.myLabel.text = "Tap to Restart";
         self.myLabel.fontSize = 55;
@@ -52,6 +57,27 @@ class GameOverScene: SKScene {
         self.scoreLabel.fontSize = 55;
         self.scoreLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y: self.frame.height/3);
         self.addChild(scoreLabel)
+        
+        self.highscore1 = SKLabelNode(fontNamed:"AppleSDGothicNeo-Light")
+        let toPrint1 = "Top score 1: " + defaults.stringForKey("highscore1")!
+        self.highscore1.text = toPrint1
+        self.highscore1.fontSize = 20;
+        self.highscore1.position = CGPoint(x: self.frame.width/2, y: self.frame.height*3/5);
+        self.addChild(highscore1)
+        
+        self.highscore2 = SKLabelNode(fontNamed:"AppleSDGothicNeo-Light")
+        let toPrint2 = "Top score 2: " + defaults.stringForKey("highscore2")!
+        self.highscore2.text = toPrint2
+        self.highscore2.fontSize = 20;
+        self.highscore2.position = CGPoint(x: self.frame.width/2, y: self.frame.height*3/5 - 25);
+        self.addChild(highscore2)
+        
+        self.highscore3 = SKLabelNode(fontNamed:"AppleSDGothicNeo-Light")
+        let toPrint3 = "Top score 3: " + defaults.stringForKey("highscore3")!
+        self.highscore3.text = toPrint3
+        self.highscore3.fontSize = 20;
+        self.highscore3.position = CGPoint(x: self.frame.width/2, y: self.frame.height*3/5 - 50);
+        self.addChild(highscore3)
         
         self.allowedToTap = true
     }

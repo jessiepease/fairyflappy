@@ -27,6 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameOver: Bool!
     
     
+    
+    
     var score: Int!
 
     
@@ -108,19 +110,58 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         obstacleList = []
         topObstacleList = []
+        
+        
+        //let highscore = 1000
+        var userdefaults = NSUserDefaults.standardUserDefaults()
+//        userdefaults.removeObjectForKey("highscore1")
+//        userdefaults.removeObjectForKey("highscore2")
+//        userdefaults.removeObjectForKey("highscore3")
+        if userdefaults.valueForKeyPath("highscore3") == nil {
+            userdefaults.setValue(0, forKey: "highscore1")
+            userdefaults.setValue(0, forKey: "highscore2")
+            userdefaults.setValue(0, forKey: "highscore3")
+        }
+        
+        userdefaults.synchronize()
+    }
+    
+    func setTopScores() {
+        var userdefaults = NSUserDefaults.standardUserDefaults()
+        var scorelist: [Int] = []
+        var temp: Int = self.score
+        scorelist.append(userdefaults.stringForKey("highscore1")!.toInt()!)
+        scorelist.append(userdefaults.stringForKey("highscore2")!.toInt()!)
+        scorelist.append(userdefaults.stringForKey("highscore3")!.toInt()!)
+        
+        for val in scorelist {
+            if val < temp {
+                scorelist[find(scorelist, val)!] = temp
+                temp = val
+                println("replacing a value")
+            }
+        }
 
+        userdefaults.setValue(String(scorelist[0]), forKey: "highscore1")
+        userdefaults.setValue(String(scorelist[1]), forKey: "highscore2")
+        userdefaults.setValue(String(scorelist[2]), forKey: "highscore3")
+        
+        userdefaults.synchronize()
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        println("CONTACT!")
-        scoreLabel.removeFromParent()
-        myGameOverLabel.removeFromParent()
-        self.addChild(myGameOverLabel)
-        //self.runAction(SKAction.waitForDuration(NSTimeInterval(0.5)))
-        gameOver = true
-        myGameOver.currentScore = score
-        
-        self.runAction(SKAction.waitForDuration(NSTimeInterval(0.5)), completion: { self.view?.presentScene(myGameOver)})
+        if (!gameOver) {
+            println("CONTACT!")
+            scoreLabel.removeFromParent()
+            myGameOverLabel.removeFromParent()
+            self.addChild(myGameOverLabel)
+            //self.runAction(SKAction.waitForDuration(NSTimeInterval(0.5)))
+            gameOver = true
+            myGameOver.currentScore = score
+            setTopScores()
+            
+            self.runAction(SKAction.waitForDuration(NSTimeInterval(0.5)), completion: { self.view?.presentScene(myGameOver)})
+        }
         
         
     }
