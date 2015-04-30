@@ -114,9 +114,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //let highscore = 1000
         var userdefaults = NSUserDefaults.standardUserDefaults()
-//        userdefaults.removeObjectForKey("highscore1")
-//        userdefaults.removeObjectForKey("highscore2")
-//        userdefaults.removeObjectForKey("highscore3")
         if userdefaults.valueForKeyPath("highscore3") == nil {
             userdefaults.setValue(0, forKey: "highscore1")
             userdefaults.setValue(0, forKey: "highscore2")
@@ -151,11 +148,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         if (!gameOver) {
-            println("CONTACT!")
+
             scoreLabel.removeFromParent()
             myGameOverLabel.removeFromParent()
             self.addChild(myGameOverLabel)
-            //self.runAction(SKAction.waitForDuration(NSTimeInterval(0.5)))
             gameOver = true
             myGameOver.currentScore = score
             setTopScores()
@@ -180,7 +176,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         curObstacle.yScale = 0.3
         curObstacle.position = CGPoint(x: spawnPos, y: curObstacle.size.height/2)
         
-        //curObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: curObstacle.size)
         curObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: curObstacle.size)
         curObstacle.physicsBody?.affectedByGravity = false
         curObstacle.physicsBody?.dynamic = true
@@ -240,7 +235,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 physicsBody.categoryBitMask = PhysicsCategory.Obstacle
                 physicsBody.contactTestBitMask = PhysicsCategory.Fairy
                 self.physicsBody = physicsBody
-                //self.size = self.view!.frame.size
                 
                 
                 
@@ -260,7 +254,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.sprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
                 let sparkle:SKEmitterNode = SKEmitterNode(fileNamed: "jumpParticle.sks")
                 self.sprite.addChild(sparkle)
-                println(sparkle.particleLifetime)
                 self.sprite.physicsBody?.applyForce(upVector)
                 self.runAction(SKAction.waitForDuration(NSTimeInterval(0.4)), completion: { sparkle.removeFromParent() })
                 self.sprite.texture = SKTexture(imageNamed: "fairy2.png")
@@ -335,7 +328,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skView.scene?.size = skView.frame.size
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
         self.myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        println("rotationhappened")
+
         //change label and phyiscs body of the screen
         self.sprite.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
 

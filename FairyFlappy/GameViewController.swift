@@ -34,11 +34,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        var image: UIImage = UIImage(named: "gardenbackground.jpg")!
-        //        bgImage = UIImageView(image: image)
-        //        bgImage!.frame = UIScreen.mainScreen().bounds
-        //        self.view.addSubview(bgImage!)
-        //        self.view.sendSubviewToBack(bgImage!)
         
         
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
